@@ -32,10 +32,10 @@ class CreateTransactionService {
     }
 
     const balance = await transactionRepository.getBalance();
-    console.log(balance);
     if (type === 'outcome' && Number(value) > balance.total) {
       throw new AppError('Saldo insuficiente', 400);
     }
+
     // Category
     const findCategory = await categoryRepository.findOne({
       where: { title: category },
