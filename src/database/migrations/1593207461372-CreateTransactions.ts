@@ -15,9 +15,10 @@ export default class CreateTransactions1593207461372
         columns: [
           {
             name: 'id',
-            type: 'varchar',
+            type: 'uuid',
             isPrimary: true,
             generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'title',
@@ -27,6 +28,8 @@ export default class CreateTransactions1593207461372
           {
             name: 'value',
             type: 'decimal',
+            precision: 10,
+            scale: 2,
             isNullable: false,
           },
           {
@@ -51,7 +54,7 @@ export default class CreateTransactions1593207461372
       'transactions',
       new TableColumn({
         name: 'category_id',
-        type: 'varchar',
+        type: 'uuid',
         isNullable: true,
       }),
     );
